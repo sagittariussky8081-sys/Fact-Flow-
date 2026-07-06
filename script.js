@@ -14,3 +14,6 @@ function nextFact() {
   index = (index + 1) % facts.length;
   document.getElementById("fact").textContent = facts[index];
 }
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
