@@ -9,7 +9,6 @@ const facts = [
 ];
 
 let index = 0;
-
 function nextFact() {
   index = (index + 1) % facts.length;
   document.getElementById("fact").textContent = facts[index];
