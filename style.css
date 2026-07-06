@@ -86,3 +86,33 @@ color:white;
 padding:20px;
 text-align:center;
 }
+.dark-mode{
+    background:#121212;
+    color:white;
+}
+
+.dark-mode .hero,
+.dark-mode .fact-box{
+    background:#1e1e1e;
+    color:white;
+}
+
+.dark-mode nav{
+    background:#222;
+}
+
+.dark-mode header{
+    background:#333;
+}
+
+.dark-mode footer{
+    background:#111;
+}
+
+button{
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
