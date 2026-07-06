@@ -1,99 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fact Flow</title>
-<style>
-body{
-font-family:Arial,sans-serif;
-margin:0;
-background:#f4f4f4;
-color:#333;
-}
-header{
-background:#0077cc;
-color:white;
-padding:30px;
-text-align:center;
-}
-nav{
-background:#005fa3;
-padding:10px;
-text-align:center;
-}
-nav a{
-color:white;
-text-decoration:none;
-margin:15px;
-font-weight:bold;
-}
-section{
-padding:30px;
-text-align:center;
-}
-.card{
-background:white;
-padding:20px;
-margin:20px auto;
-max-width:600px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,.2);
-}
-footer{
-background:#222;
-color:white;
-text-align:center;
-padding:20px;
-}
-button{
-padding:10px 20px;
-background:#0077cc;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
-</style>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-<h1>Fact Flow</h1>
-<p>Discover Amazing Facts Every Day!</p>
+    <div class="container">
+        <h1>🌍 Fact Flow</h1>
+        <p>Discover Amazing Facts Every Day</p>
+    </div>
 </header>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">Science</a>
-<a href="#">History</a>
-<a href="#">Animals</a>
-<a href="#">Space</a>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Science</a></li>
+        <li><a href="#">History</a></li>
+        <li><a href="#">Animals</a></li>
+        <li><a href="#">Space</a></li>
+        <li><a href="#">Technology</a></li>
+    </ul>
 </nav>
 
-<section>
-<div class="card">
-<h2>Daily Fact</h2>
-<p id="fact">Honey never spoils. Archaeologists have found edible honey that is over 3,000 years old.</p>
-<button onclick="newFact()">Next Fact</button>
-</div>
+<section class="hero">
+<h2>Welcome to Fact Flow</h2>
+
+<p>Explore thousands of amazing facts from around the world.</p>
+
+<input type="text" placeholder="Search facts...">
+
+</section>
+
+<section class="fact-box">
+
+<h2>Today's Fact</h2>
+
+<p id="fact">
+Honey never spoils. Archaeologists have found edible honey over 3,000 years old.
+</p>
+
+<button onclick="nextFact()">Next Fact</button>
+
 </section>
 
 <footer>
-<p>© 2026 Fact Flow</p>
+
+<p>© 2026 Fact Flow | All Rights Reserved</p>
+
 </footer>
 
-<script>
-const facts=[
-"Honey never spoils.",
-"Octopuses have three hearts.",
-"Bananas are berries.",
-"The Eiffel Tower grows taller in summer.",
-"A day on Venus is longer than a year on Venus."
-];
-
-function newFact(){
-document.getElementById("fact").innerHTML=facts[Math.floor(Math.random()*facts.length)];
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
