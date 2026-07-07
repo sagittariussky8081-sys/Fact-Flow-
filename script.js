@@ -127,6 +127,26 @@ function searchFact() {
     document.getElementById("fact").textContent =
         "❌ No matching fact found.";
 }
+function randomFact() {
+
+    // Get all category names
+    const categories = Object.keys(facts);
+
+    // Pick a random category
+    const randomCategory =
+        categories[Math.floor(Math.random() * categories.length)];
+
+    // Pick a random fact from that category
+    const randomIndex =
+        Math.floor(Math.random() * facts[randomCategory].length);
+
+    // Update current values
+    currentCategory = randomCategory;
+    currentIndex = randomIndex;
+
+    // Display the fact
+    displayFact();
+}
 
 function toggleDarkMode() {
 
