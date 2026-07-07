@@ -14,9 +14,10 @@ body{
 header{
     header{
     background:linear-gradient(135deg,#0077ff,#7b2cff);
-    color:#fff;
+    color:white;
     text-align:center;
-    padding:40px 20px;
+    padding:60px 20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 header button{
@@ -76,7 +77,11 @@ nav a:hover{
     border-radius:20px;
     box-shadow:0 10px 30px rgba(0,0,0,.15);
     text-align:center;
-    transition:.3s;
+    transition:0.3s;
+}
+
+.fact-box:hover{
+    transform:translateY(-5px);
 }
 button{
     padding:12px 25px;
