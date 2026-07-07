@@ -35,10 +35,9 @@ function searchFact() {
     const foundFact = facts.find(fact =>
         fact.toLowerCase().includes(searchText)
     );
-
-    if (foundFact) {
-        factElement.textContent = foundFact;
-    } else {
-        factElement.textContent = "No fact found. Try another keyword.";
-    }
+if (foundFact) {
+    factElement.textContent = foundFact;
+} else {
+    factElement.textContent = "No fact found. Try another keyword.";
+}
 }
