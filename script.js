@@ -147,7 +147,27 @@ function randomFact() {
     // Display the fact
     displayFact();
 }
+function shareFact() {
 
+    const fact = document.getElementById("fact").textContent;
+
+    if (navigator.share) {
+
+        navigator.share({
+            title: "Fact Flow",
+            text: fact,
+            url: window.location.href
+        });
+
+    } else {
+
+        navigator.clipboard.writeText(fact);
+
+        alert("Fact copied to clipboard!");
+
+    }
+
+}
 function toggleDarkMode() {
 
     document.body.classList.toggle("dark-mode");
