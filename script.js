@@ -1,14 +1,37 @@
+const facts = {
+  science: [
+    "Water boils at 100°C at sea level.",
+    "The human brain contains about 86 billion neurons."
+  ],
 
-const facts = [
-  "Honey never spoils.",
-  "Octopuses have three hearts.",
-  "Bananas are berries, but strawberries aren't.",
-  "The Eiffel Tower grows taller in summer.",
-  "A day on Venus is longer than a year on Venus.",
-  "Sharks existed before trees."
-];
+  animals: [
+    "Octopuses have three hearts.",
+    "Sharks existed before trees."
+  ],
+
+  history: [
+    "The Great Wall of China took centuries to build.",
+    "The Eiffel Tower grows taller in summer."
+  ],
+
+  space: [
+    "A day on Venus is longer than a year on Venus.",
+    "The Sun contains over 99% of the Solar System's mass."
+  ],
+
+  technology: [
+    "The first computer bug was an actual moth.",
+    "The first website went online in 1991."
+  ],
+
+  general: [
+    "Honey never spoils.",
+    "Bananas are berries, but strawberries aren't."
+  ]
+};
 
 let index = 0;
+let currentCategory = "general";
 function nextFact() {
   index = (index + 1) % facts.length;
   document.getElementById("fact").textContent = facts[index];
@@ -40,4 +63,11 @@ if (foundFact) {
 } else {
     factElement.textContent = "No fact found. Try another keyword.";
 }
+}
+function showCategory(category) {
+    currentCategory = category;
+    index = 0;
+
+    document.getElementById("fact").textContent =
+        facts[currentCategory][index];
 }
