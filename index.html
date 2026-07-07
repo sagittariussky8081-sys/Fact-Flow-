@@ -1,59 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fact Flow</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fact Flow</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-    <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
-    <div class="container">
-        <h1>🌍 Fact Flow</h1>
-        <p>Discover Amazing Facts Every Day</p>
-    </div>
+    <h1>🌍 Fact Flow</h1>
+    <p>Discover Amazing Facts Every Day</p>
+
+    <button onclick="toggleDarkMode()">
+        🌙 Dark Mode
+    </button>
 </header>
 
 <nav>
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Science</a></li>
-        <li><a href="#">History</a></li>
-        <li><a href="#">Animals</a></li>
-        <li><a href="#">Space</a></li>
-        <li><a href="#">Technology</a></li>
+        <li><a href="#" onclick="showCategory('general')">Home</a></li>
+        <li><a href="#" onclick="showCategory('science')">Science</a></li>
+        <li><a href="#" onclick="showCategory('history')">History</a></li>
+        <li><a href="#" onclick="showCategory('animals')">Animals</a></li>
+        <li><a href="#" onclick="showCategory('space')">Space</a></li>
+        <li><a href="#" onclick="showCategory('technology')">Technology</a></li>
     </ul>
 </nav>
 
 <section class="hero">
-<h2>Welcome to Fact Flow</h2>
 
-<p>Explore thousands of amazing facts from around the world.</p>
+    <h2>Welcome to Fact Flow</h2>
 
-<input type="text" id="search" placeholder="Search facts...">
-<button onclick="searchFact()">Search</button>
+    <p>
+        Explore amazing facts from different categories.
+    </p>
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Search facts..."
+    >
+
+    <button onclick="searchFact()">
+        Search
+    </button>
 
 </section>
 
 <section class="fact-box">
 
-<h2>Today's Fact</h2>
+    <h2>Today's Fact</h2>
 
-<p id="fact">
-Honey never spoils. Archaeologists have found edible honey over 3,000 years old.
-</p>
+    <p id="fact">
+        Honey never spoils.
+    </p>
 
-<button onclick="nextFact()">Next Fact</button>
+    <button onclick="nextFact()">
+        Next Fact
+    </button>
 
 </section>
 
 <footer>
 
-<p>© 2026 Fact Flow | All Rights Reserved</p>
+    <p>
+        © 2026 Fact Flow | All Rights Reserved
+    </p>
 
 </footer>
 
