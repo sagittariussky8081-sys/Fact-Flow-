@@ -39,17 +39,6 @@ const facts = {
 let currentCategory = "general";
 let currentIndex = 0;
 
-function displayFact() {
-    const factElement = document.getElementById("fact");
-
-    factElement.classList.remove("fade");
-
-    setTimeout(() => {
-        factElement.textContent = facts[currentCategory][currentIndex];
-        factElement.classList.add("fade");
-    }, 100);
-}
-
 function nextFact() {
     currentIndex = (currentIndex + 1) % facts[currentCategory].length;
     displayFact();
