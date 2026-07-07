@@ -39,44 +39,31 @@ const facts = {
 let currentCategory = "general";
 let currentIndex = 0;
 
-// Display current fact
 function displayFact() {
     const factElement = document.getElementById("fact");
 
     factElement.classList.remove("fade");
 
     setTimeout(() => {
-        factElement.textContent =
-            facts[currentCategory][currentIndex];
-
+        factElement.textContent = facts[currentCategory][currentIndex];
         factElement.classList.add("fade");
-    }, 50);
+    }, 100);
 }
 
-// Next Fact
 function nextFact() {
-    currentIndex++;
-
-    if (currentIndex >= facts[currentCategory].length) {
-        currentIndex = 0;
-    }
-
+    currentIndex = (currentIndex + 1) % facts[currentCategory].length;
     displayFact();
 }
 
-// Change Category
 function showCategory(category) {
     currentCategory = category;
     currentIndex = 0;
     displayFact();
 }
 
-// Search Facts
 function searchFact() {
 
-    const search = document
-        .getElementById("search")
-        .value
+    const search = document.getElementById("search").value
         .toLowerCase()
         .trim();
 
@@ -87,24 +74,23 @@ function searchFact() {
 
     for (const category in facts) {
 
-        for (const fact of facts[category]) {
+        for (let i = 0; i < facts[category].length; i++) {
 
-            if (fact.toLowerCase().includes(search)) {
+            if (facts[category][i].toLowerCase().includes(search)) {
 
-                document.getElementById("fact").textContent = fact;
+                currentCategory = category;
+                currentIndex = i;
+
+                displayFact();
                 return;
-
             }
-
         }
-
     }
 
     document.getElementById("fact").textContent =
         "❌ No matching fact found.";
 }
 
-// Dark Mode
 function toggleDarkMode() {
 
     document.body.classList.toggle("dark-mode");
@@ -117,7 +103,6 @@ function toggleDarkMode() {
 
 }
 
-// Load Theme
 window.onload = function () {
 
     if (localStorage.getItem("theme") === "dark") {
