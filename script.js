@@ -1,42 +1,112 @@
 const facts = {
-  science: [
-    "Water boils at 100°C at sea level.",
-    "The human brain contains about 86 billion neurons."
-  ],
+    general: [
+        "Honey never spoils.",
+        "Bananas are berries, but strawberries aren't.",
+        "A group of flamingos is called a flamboyance."
+    ],
 
-  animals: [
-    "Octopuses have three hearts.",
-    "Sharks existed before trees."
-  ],
+    science: [
+        "Water boils at 100°C at sea level.",
+        "The human brain contains about 86 billion neurons.",
+        "Light travels at about 300,000 km per second."
+    ],
 
-  history: [
-    "The Great Wall of China took centuries to build.",
-    "The Eiffel Tower grows taller in summer."
-  ],
+    history: [
+        "The Great Wall of China took centuries to build.",
+        "The Eiffel Tower grows taller in summer.",
+        "The first Olympic Games were held in ancient Greece."
+    ],
 
-  space: [
-    "A day on Venus is longer than a year on Venus.",
-    "The Sun contains over 99% of the Solar System's mass."
-  ],
+    animals: [
+        "Octopuses have three hearts.",
+        "Sharks existed before trees.",
+        "A giraffe's tongue can be over 45 cm long."
+    ],
 
-  technology: [
-    "The first computer bug was an actual moth.",
-    "The first website went online in 1991."
-  ],
+    space: [
+        "A day on Venus is longer than a year on Venus.",
+        "The Sun contains over 99% of the Solar System's mass.",
+        "Jupiter is the largest planet in our Solar System."
+    ],
 
-  general: [
-    "Honey never spoils.",
-    "Bananas are berries, but strawberries aren't."
-  ]
+    technology: [
+        "The first computer bug was an actual moth.",
+        "The first website went online in 1991.",
+        "Email existed before the World Wide Web."
+    ]
 };
 
-let index = 0;
 let currentCategory = "general";
-function nextFact() {
-  index = (index + 1) % facts.length;
-  document.getElementById("fact").textContent = facts[index];
+let currentIndex = 0;
+
+// Display current fact
+function displayFact() {
+    const factElement = document.getElementById("fact");
+
+    factElement.classList.remove("fade");
+
+    setTimeout(() => {
+        factElement.textContent =
+            facts[currentCategory][currentIndex];
+
+        factElement.classList.add("fade");
+    }, 50);
 }
+
+// Next Fact
+function nextFact() {
+    currentIndex++;
+
+    if (currentIndex >= facts[currentCategory].length) {
+        currentIndex = 0;
+    }
+
+    displayFact();
+}
+
+// Change Category
+function showCategory(category) {
+    currentCategory = category;
+    currentIndex = 0;
+    displayFact();
+}
+
+// Search Facts
+function searchFact() {
+
+    const search = document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+    if (search === "") {
+        displayFact();
+        return;
+    }
+
+    for (const category in facts) {
+
+        for (const fact of facts[category]) {
+
+            if (fact.toLowerCase().includes(search)) {
+
+                document.getElementById("fact").textContent = fact;
+                return;
+
+            }
+
+        }
+
+    }
+
+    document.getElementById("fact").textContent =
+        "❌ No matching fact found.";
+}
+
+// Dark Mode
 function toggleDarkMode() {
+
     document.body.classList.toggle("dark-mode");
 
     if (document.body.classList.contains("dark-mode")) {
@@ -44,30 +114,16 @@ function toggleDarkMode() {
     } else {
         localStorage.setItem("theme", "light");
     }
+
 }
 
+// Load Theme
 window.onload = function () {
+
     if (localStorage.getItem("theme") === "dark") {
         document.body.classList.add("dark-mode");
     }
+
+    displayFact();
+
 };
-function searchFact() {
-    const searchText = document.getElementById("search").value.toLowerCase();
-    const factElement = document.getElementById("fact");
-
-    const foundFact = facts.find(fact =>
-        fact.toLowerCase().includes(searchText)
-    );
-if (foundFact) {
-    factElement.textContent = foundFact;
-} else {
-    factElement.textContent = "No fact found. Try another keyword.";
-}
-}
-function showCategory(category) {
-    currentCategory = category;
-    index = 0;
-
-    document.getElementById("fact").textContent =
-        facts[currentCategory][index];
-}
