@@ -39,6 +39,10 @@ const facts = {
 let currentCategory = "general";
 let currentIndex = 0;
 
+function displayFact() {
+    document.getElementById("fact").textContent =
+        facts[currentCategory][currentIndex];
+}
 function nextFact() {
     currentIndex = (currentIndex + 1) % facts[currentCategory].length;
     displayFact();
